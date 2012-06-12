@@ -1,0 +1,12 @@
+[submodule "python-mode"]
+	path = python-mode
+	url = git://github.com/klen/python-mode.git
+[submodule "vim-powerline"]
+	path = vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "python-indent"]
+	path = python-indent
+	url = git://github.com/gg/python.vim.git
+[submodule "headlights"]
+	path = headlights
+	url = git://github.com/vim-scripts/Headlights.git
