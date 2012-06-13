@@ -1,26 +1,4 @@
-let g:solarized_hitrail=1
-"hi! SpecialKey ctermfg=7 ctermbg=7
-colorscheme solarized
-
-let g:NERDTreeShowBookmarks=1
-
-" Enable python folding
-let g:pymode_folding = 0
-let g:pymode_lint = 0
-
-" no point showing string
-let g:tagbar_compact = 1
-
-" toggle instead of open to match nerdtree and tabbar patters
-nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
-nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
-
-" shortcut for ':'
-nnoremap ; :
-
-" eclipse style alt-arrow for moving back/forth in jumplist
-map <A-Left> <C-O>
-map <A-Right> <C-I>
+set nonumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
