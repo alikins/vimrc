@@ -42,8 +42,15 @@ let g:NERDTreeShowBookmarks=1
 let g:pymode_folding = 0
 let g:pymode_lint = 0
 
+" Key for set/unset breakpoint
+" \b conflicts with buffergator
+let g:pymode_breakpoint_key = '<leader>B'
+
 " no point showing string
 let g:tagbar_compact = 1
+
+" open ctrl-P in dir of current file
+let g:ctrlp_working_path_mode = 1
 
 " toggle instead of open to match nerdtree and tabbar patters
 nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
@@ -55,3 +62,21 @@ nnoremap ; :
 " eclipse style alt-arrow for moving back/forth in jumplist
 map <A-Left> <C-O>
 map <A-Right> <C-I>
+
+" cough, emacs, cough
+" begin/end of line
+map <C-a> <Home>
+map <C-e> <End>
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" CTRL-C to copy (visual mode)
+" you know, like everything else,
+" even emacs these days
+vmap <C-c> y
+" " CTRL-X to cut (visual mode)
+vmap <C-x> x
+" " CTRL-V to paste (insert mode)
+imap <C-v> <esc>P
+vmap <C-v> P
