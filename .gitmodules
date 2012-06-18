@@ -10,3 +10,6 @@
 [submodule "headlights"]
 	path = headlights
 	url = git://github.com/vim-scripts/Headlights.git
+[submodule "file-line"]
+	path = file-line
+	url = git://github.com/bogado/file-line.git
