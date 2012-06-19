@@ -13,3 +13,15 @@
 [submodule "file-line"]
 	path = file-line
 	url = git://github.com/bogado/file-line.git
+[submodule "vim-rooter"]
+	path = vim-rooter
+	url = git://github.com/airblade/vim-rooter.git
+[submodule "vim-dev-plugin"]
+	path = vim-dev-plugin
+	url = git://github.com/c9s/vim-dev-plugin.git
+[submodule "Decho"]
+	path = Decho
+	url = git://github.com/vim-scripts/Decho.git
+[submodule "vim-fix-git-diff-path"]
+	path = vim-fix-git-diff-path
+	url = git@github.com:alikins/vim-fix-git-diff-path.git
