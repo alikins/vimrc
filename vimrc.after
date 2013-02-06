@@ -24,19 +24,21 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 "let g:syntastic_enable_balloons=1
 let g:syntastic_enable_highlighting=1
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['ruby','python', 'sh'],
-            \ 'passive_filetypes': ['puppet'] }
+"let g:syntastic_mode_map = { 'mode': 'active',
+"            \ 'active_filetypes': ['ruby','python', 'sh'],
+"            \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_python_checker_args='--ignore=E501'
 
 " solarized
-set background=dark
+"set background=dark
 let g:solarized_termcolors=256
-"let g:solarized_visibility="normal"
+let g:solarized_visibility="normal"
 let g:solarized_hitrail=1
 "hi! SpecialKey ctermfg=7 ctermbg=7
-colorscheme solarized
+"colorscheme solarized
+colorscheme molokai
 
-set wildmode=list:longest
+"set wildmode=list:longest
 "list:full
 
 let g:NERDTreeShowBookmarks=1
@@ -58,9 +60,27 @@ let g:ctrlp_working_path_mode = 1
 " toggle instead of open to match nerdtree and tabbar patters
 nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
-
+"
+" <Leader>rt  tagbar
+" <Leader>n   nerdtree toggle
+" ctrl-w <arrow> move to window
+" ctrl-w_ max/zoom this window
+" :hide   hide current window
+" :ls show all buffers
+" ctrl-w cltr-w  cycle windows
+" :reg to show cut things
+" "<number>p to paste that cut
+" v visual mode, y to yank, p to paste, d to delete
+" and mostly working ctrl-c/x/v
+" F3/c-c g  goto def in python (repo)
+" ctrl-]  find tag
+"
 " shortcut for ':'
 nnoremap ; :
+" "<number>p to paste that cut
+
+" F<F3> for goto defination (at least in python via rope)
+map <F3> :RopeGotoDefinition<CR>
 
 " eclipse style alt-arrow for moving back/forth in jumplist
 map <A-Left> <C-O>
@@ -73,6 +93,7 @@ map <C-e> <End>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
 
 " CTRL-C to copy (visual mode)
 " you know, like everything else,

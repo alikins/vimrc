@@ -25,3 +25,6 @@
 [submodule "vim-fix-git-diff-path"]
 	path = vim-fix-git-diff-path
 	url = git@github.com:alikins/vim-fix-git-diff-path.git
+[submodule "vim-nerdtree-tabs"]
+	path = vim-nerdtree-tabs
+	url = git://github.com/jistr/vim-nerdtree-tabs.git
