@@ -13,6 +13,19 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set showcmd
 
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'shortmess'
+" http://spf13.com/post/perfect-vimrc-vim-config-file/
+" Turn off lots of annoying messages including "hit enter
+" to continue" on quickfix
+set shortmess+=filmnrxoOtT
+
+" http://spf13.com/post/perfect-vimrc-vim-config-file/
+set backspace=indent,eol,start  " backspace for dummys
+
+" find as you type search
+set incsearch
+set scrolloff=2
+
 "http://www.mail-archive.com/bug-coreutils@gnu.org/msg15573.html
 let c_space_errors=1
 "highlight RedundantSpaces ctermbg=red guibg=red
@@ -27,7 +40,25 @@ let g:syntastic_enable_highlighting=1
 "let g:syntastic_mode_map = { 'mode': 'active',
 "            \ 'active_filetypes': ['ruby','python', 'sh'],
 "            \ 'passive_filetypes': ['puppet'] }
-let g:syntastic_python_checker_args='--ignore=E501'
+
+let g:syntastic_python_checker_args='--ignore=E501,E121,E122,E123,E124,E125,E126,E127,E128'
+
+let g:syntastic_python_checkers = ['flake8', 'pyqver']
+"let g:syntastic_python_checkers = ['pyqver']
+"let g:syntastic_python_checkers = ['pep8', 'pyqver']
+"let g:syntastic_python_checkers = ['pylint']
+
+
+let g:syntastic_java_checkers = ['javac', 'checkstyle']
+let g:syntastic_java_checkstyle_conf_file='/home/adrian/src/candlepin/buildconf/checkstyle.xml'
+
+" via http://hackr.se/vim/vimrc/
+" F6/F7 for next/prev errors in quickfix
+map <F6> :cnext <CR>
+imap <F6> <ESC>:cnext <CR>i
+map <F7> :cprev <CR>
+imap <F7> <ESC>:cprev <CR>i
+
 
 " solarized
 "set background=dark
@@ -43,7 +74,7 @@ colorscheme molokai
 
 let g:NERDTreeShowBookmarks=1
 
-" Enable python folding
+" disable python folding
 let g:pymode_folding = 0
 let g:pymode_lint = 0
 
@@ -61,9 +92,13 @@ let g:ctrlp_working_path_mode = 1
 nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
 "
+" h/l left/right j/k updown
+" b back word, w forward word
 " <Leader>rt  tagbar
 " <Leader>n   nerdtree toggle
+" command mode
 " ctrl-w <arrow> move to window
+" ctrl-h/j/k/l move to window
 " ctrl-w_ max/zoom this window
 " :hide   hide current window
 " :ls show all buffers
@@ -73,7 +108,7 @@ nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
 " v visual mode, y to yank, p to paste, d to delete
 " and mostly working ctrl-c/x/v
 " F3/c-c g  goto def in python (repo)
-" ctrl-]  find tag
+" ctrl-]  find tag, including in help
 "
 " shortcut for ':'
 nnoremap ; :
@@ -93,6 +128,17 @@ map <C-e> <End>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" http://stackoverflow.com/questions/327411/how-do-you-prefer-to-switch-between-buffers-in-vim
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+" Switch to alternate file
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
 
 
 " CTRL-C to copy (visual mode)

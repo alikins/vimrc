@@ -28,3 +28,6 @@
 [submodule "vim-nerdtree-tabs"]
 	path = vim-nerdtree-tabs
 	url = git://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "vim-paren-crosshairs"]
+	path = vim-paren-crosshairs
+	url = git://github.com/chreekat/vim-paren-crosshairs.git
