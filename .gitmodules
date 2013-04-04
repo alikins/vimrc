@@ -31,3 +31,6 @@
 [submodule "vim-paren-crosshairs"]
 	path = vim-paren-crosshairs
 	url = git://github.com/chreekat/vim-paren-crosshairs.git
+[submodule "vim-gitgutter"]
+	path = vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
