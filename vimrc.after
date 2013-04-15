@@ -68,6 +68,8 @@ let g:solarized_hitrail=1
 "hi! SpecialKey ctermfg=7 ctermbg=7
 "colorscheme solarized
 colorscheme molokai
+" make the paren cross hair stuff more obvious
+hi CursorColumn ctermbg=237
 
 "set wildmode=list:longest
 "list:full
