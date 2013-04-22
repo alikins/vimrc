@@ -13,6 +13,11 @@ set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set showcmd
 
+set mouse=a
+
+"  you can change buffers without saving
+set hidden
+
 " http://vimdoc.sourceforge.net/htmldoc/options.html#'shortmess'
 " http://spf13.com/post/perfect-vimrc-vim-config-file/
 " Turn off lots of annoying messages including "hit enter
@@ -21,6 +26,10 @@ set shortmess+=filmnrxoOtT
 
 " http://spf13.com/post/perfect-vimrc-vim-config-file/
 set backspace=indent,eol,start  " backspace for dummys
+
+" make backspace/space/<left>/<right> do the right thing
+" across line boundarys
+set whichwrap=b,s,<,>
 
 " find as you type search
 set incsearch
@@ -37,9 +46,9 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 "let g:syntastic_enable_balloons=1
 let g:syntastic_enable_highlighting=1
-"let g:syntastic_mode_map = { 'mode': 'active',
-"            \ 'active_filetypes': ['ruby','python', 'sh'],
-"            \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['ruby','python', 'sh'],
+            \ 'passive_filetypes': ['puppet'] }
 
 let g:syntastic_python_checker_args='--ignore=E501,E121,E122,E123,E124,E125,E126,E127,E128'
 
