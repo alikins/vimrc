@@ -128,6 +128,11 @@ nnoremap ; :
 " F<F3> for goto defination (at least in python via rope)
 map <F3> :RopeGotoDefinition<CR>
 
+xmap am <Plug>(textobj-python-function-a)
+omap am <Plug>(textobj-python-function-a)
+xmap im <Plug>(textobj-python-function-i)
+omap im <Plug>(textobj-python-function-i)
+
 " eclipse style alt-arrow for moving back/forth in jumplist
 map <A-Left> <C-O>
 map <A-Right> <C-I>

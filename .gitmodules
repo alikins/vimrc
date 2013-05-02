@@ -34,3 +34,15 @@
 [submodule "vim-gitgutter"]
 	path = vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "sort-python-imports"]
+	path = sort-python-imports
+	url = git://github.com/vim-scripts/sort-python-imports.git
+[submodule "vim-textobj-user"]
+	path = vim-textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "vim-textobj-between"]
+	path = vim-textobj-between
+	url = git://github.com/thinca/vim-textobj-between.git
+[submodule "vim-textobj-python"]
+	path = vim-textobj-python
+	url = git://github.com/bps/vim-textobj-python.git
