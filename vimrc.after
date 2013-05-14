@@ -35,6 +35,7 @@ set whichwrap=b,s,<,>
 set incsearch
 set scrolloff=2
 
+
 "http://www.mail-archive.com/bug-coreutils@gnu.org/msg15573.html
 let c_space_errors=1
 "highlight RedundantSpaces ctermbg=red guibg=red
@@ -53,6 +54,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_python_checker_args='--ignore=E501,E121,E122,E123,E124,E125,E126,E127,E128'
 
 let g:syntastic_python_checkers = ['flake8', 'pyqver']
+let g:syntastic_enabled_highlighting=1
+
 "let g:syntastic_python_checkers = ['pyqver']
 "let g:syntastic_python_checkers = ['pep8', 'pyqver']
 "let g:syntastic_python_checkers = ['pylint']
@@ -96,12 +99,20 @@ let g:pymode_breakpoint_key = '<leader>B'
 " no point showing string
 let g:tagbar_compact = 1
 
-" open ctrl-P in dir of current file
-let g:ctrlp_working_path_mode = 1
+let g:ctrlp_map = "<c-p>"
+let g:ctrlp_cmd = 'CtrlPMixed'
 
-" toggle instead of open to match nerdtree and tabbar patters
-nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
-nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
+" open ctrl-P in dir of current file
+"let g:ctrlp_working_path_mode = 1
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
+" which ctrl-p extensions to use
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+                         \ 'undo', 'line', 'changes', 'cmdline', 'menu',
+                         \ 'bookmarkdir']
+
 "
 " h/l left/right j/k updown
 " b back word, w forward word
@@ -120,10 +131,15 @@ nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
 " and mostly working ctrl-c/x/v
 " F3/c-c g  goto def in python (repo)
 " ctrl-]  find tag, including in help
-"
+" <leader>a ack for word under cursor
+" <leader>s s/// for word under cursor
+
 " shortcut for ':'
 nnoremap ; :
 " "<number>p to paste that cut
+
+" use mixed mode by default
+nnoremap <C-P> :CtrlPMixed<CR>
 
 " F<F3> for goto defination (at least in python via rope)
 map <F3> :RopeGotoDefinition<CR>
@@ -142,6 +158,11 @@ map <A-Right> <C-I>
 map <C-a> <Home>
 map <C-e> <End>
 
+" toggle instead of open to match nerdtree and tabbar patters
+nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
+nnoremap <silent> <Leader>t :BuffergatorTabsToggle<CR>
+
+"readline/bash style home/end
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
@@ -156,6 +177,13 @@ map <C-h> <C-w><Left>
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 
+" Ack for word under cursor
+" http://vimbits.com/bits/19
+nnoremap <leader>a *<C-o>:AckFromSearch!<CR>
+
+" search and replace word under cursor
+" http://vim.wikia.com/wiki/Search_and_replace_the_word_under_the_cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " CTRL-C to copy (visual mode)
 " you know, like everything else,
@@ -166,3 +194,18 @@ vmap <C-x> x
 " " CTRL-V to paste (insert mode)
 imap <C-v> <esc>P
 vmap <C-v> P
+
+
+" http://vim.wikia.com/wiki/Capture_ex_command_output
+" WindowMessage will run an ex command and send it's output
+" to a buffer
+function! WindowMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  new
+  silent put=message
+  set nomodified
+  set filetype=vim
+endfunction
+command! -nargs=+ -complete=command WindowMessage call WindowMessage(<q-args>)

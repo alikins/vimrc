@@ -46,3 +46,12 @@
 [submodule "vim-textobj-python"]
 	path = vim-textobj-python
 	url = git://github.com/bps/vim-textobj-python.git
+[submodule "cltrp-extensions"]
+	path = cltrp-extensions
+	url = git://github.com/sgur/ctrlp-extensions.vim.git
+[submodule "ctrlp-extensions"]
+	path = ctrlp-extensions
+	url = git://github.com/sgur/ctrlp-extensions.vim.git
+[submodule "yankring"]
+	path = yankring
+	url = git://github.com/vim-scripts/YankRing.vim.git
